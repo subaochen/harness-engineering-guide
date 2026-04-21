@@ -720,15 +720,6 @@ pie title 核心能力评分（满分 10 分）
 
 ---
 
-## 📞 十、联系我们
-
-- **微信公众号**：[你的公众号名称]
-- **问题反馈**：[GitHub Issues / 邮箱]
-- **交流群**：[微信群 / Discord]
-
-**欢迎star、fork、PR！**
-
----
 
 **作者**：[你的名字]  
 **编辑**：秘书长 AI 团队  
@@ -751,7 +742,9 @@ pie title 核心能力评分（满分 10 分）
 - OpenClaw 技术应用
 - 编程效率提升
 
-![关注智能体开发](/home/sbc/.openclaw/workspace/assets/wechat/official-account-qr.jpg)
+![关注公众号](https://github.com/subaochen/harness-engineering-guide/raw/main/wechat-qr.jpg)
+
+> **👆 长按二维码，关注"智能体开发"**
 
 *扫码关注，获取最新文章和技术干货*
 
