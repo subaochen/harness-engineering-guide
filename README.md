@@ -6,15 +6,92 @@
 
 ---
 
-## 📋 快速开始
+## 🚀 快速开始
 
-**核心成果**：
-- ✅ 4 个阶段、15 个脚本、5 个工作流模板
-- ✅ 系统自愈率>80%，故障自动恢复
-- ✅ 智能路由、并行编排、可观测性拉满
-- ✅ 所有代码开源，可直接部署
+### 一键部署
 
-**完整文档**：[阅读全文 →](./harness-engineering-implementation-guide.md)
+```bash
+# 克隆仓库
+git clone https://github.com/subaochen/harness-engineering-guide.git
+cd harness-engineering-guide
+
+# 查看文档
+cat README.md
+
+# 阅读完整指南
+cat harness-engineering-implementation-guide.md
+```
+
+### 核心成果
+
+- ✅ **4 个阶段**：基础建设→可观测性→故障恢复→高级协作
+- ✅ **15 个脚本**：归档/监控/告警/工作流/路由等
+- ✅ **5 个工作流模板**：开箱即用
+- ✅ **系统自愈率>80%**：自动重试 + 降级处理
+- ✅ **一键发布**：知乎/掘金/GitHub/公众号
+
+---
+
+## 📚 文档导航
+
+| 文档 | 说明 | 位置 |
+|------|------|------|
+| 📘 **完整实施指南** | 4 个阶段完整实施过程 | [阅读全文 →](./harness-engineering-implementation-guide.md) |
+| 🚀 **一键发布流程** | 知乎/掘金/GitHub一键发布 | [查看](./docs-processes/one-click-publish-workflow.md) |
+| 📱 **公众号发布流程** | 微信公众号半自动发布 | [查看](./docs-processes/wechat-publish-manual.md) |
+| 🎨 **插图规范** | 文章插图生成标准 | [查看](./configs/article-illustration-standards.md) |
+
+---
+
+## 🛠️ 工具脚本
+
+### 一键发布脚本
+
+```bash
+# 发布到知乎/掘金/GitHub
+./scripts/publish-multi-platform.sh docs/your-article.md
+
+# 指定标题和标签
+./scripts/publish-multi-platform.sh docs/article.md "文章标题" "AI,Agent,OpenClaw"
+```
+
+**功能**：
+- ✅ 自动发布到 GitHub Gist
+- ✅ 自动打开知乎/掘金创作后台
+- ✅ 自动生成封面图（需 API key）
+- ✅ 自动添加公众号关注引导
+- ✅ 自动创建发布记录
+
+### 其他脚本
+
+| 脚本 | 用途 |
+|------|------|
+| `publish-multi-platform.sh` | 一键多平台发布 |
+| `workflow-engine.sh` | 工作流引擎 |
+| `smart-router.sh` | 智能路由 |
+| `parallel-dispatch.sh` | 并行任务分发 |
+
+---
+
+## 📁 项目结构
+
+```
+harness-engineering-guide/
+├── README.md                          # 项目首页
+├── cover.jpg                          # 封面图
+├── harness-engineering-implementation-guide.md  # 完整文章
+├── scripts/
+│   └── publish-multi-platform.sh      # 一键发布脚本
+├── docs-processes/
+│   ├── one-click-publish-workflow.md  # 发布流程
+│   └── wechat-publish-manual.md       # 公众号流程
+├── configs/
+│   ├── article-illustration-standards.md  # 插图规范
+│   ├── contact-info.md                # 联系方式
+│   └── retry-policy.json              # 重试策略
+└── images/
+    └── TODO-IMAGES.md                 # 待生成插图清单
+```
 
 ---
 
@@ -31,44 +108,6 @@
 ![关注智能体开发](./wechat-qr.jpg)
 
 *扫码关注，获取最新文章和技术干货*
-
----
-
-## 📚 文档导航
-
-| 文档 | 说明 |
-|------|------|
-| [完整实施指南](./harness-engineering-implementation-guide.md) | 4 个阶段完整实施过程 |
-| [一键发布流程](./one-click-publish-workflow.md) | 知乎/掘金/GitHub 一键发布 |
-| [公众号发布流程](./wechat-publish-manual.md) | 微信公众号半自动发布 |
-
----
-
-## 🚀 快速部署
-
-```bash
-# 克隆代码
-git clone https://github.com/subaochen/harness-engineering-guide.git
-cd harness-engineering-guide
-
-# 查看文档
-cat README.md
-
-# 阅读完整指南
-cat harness-engineering-implementation-guide.md
-```
-
----
-
-## 📊 资源统计
-
-| 类别 | 数量 |
-|------|------|
-| 脚本 | 15 个 |
-| 配置文件 | 3 个 |
-| 工作流模板 | 5 个 |
-| QA 检查清单 | 3 个 |
-| 数据库表 | 3 张 |
 
 ---
 
