@@ -103,6 +103,40 @@ graph TB
 
 > **架构图说明**：秘书长负责决策和路由，3 个子代理各司其职，Harness Engineering 层提供基础设施支持。
 
+### 事务处理流程
+
+```mermaid
+flowchart TD
+    Start[用户请求] --> Decision{秘书长决策}
+    Decision -->|简单事务 | Simple[自己处理<br/>查询/记录/整理]
+    Decision -->|复杂事务 | Complex[派发给子代理]
+    
+    Complex --> Qingbao[qingbao 情报<br/>调研/资料汇总]
+    Complex --> Wenan[wenan 文案<br/>写作/设计/数据分析]
+    Complex --> Jiaoxue[jiaoxue 协调<br/>教案/教学流程]
+    
+    Simple --> Result[结果汇总]
+    Qingbao --> Result
+    Wenan --> Result
+    Jiaoxue --> Result
+    
+    Result --> End[返回给用户]
+    
+    style Start fill:#1E88E5,color:#fff
+    style Decision fill:#FF9800,color:#fff
+    style Simple fill:#43A047,color:#fff
+    style Complex fill:#F44336,color:#fff
+    style Qingbao fill:#7E57C2,color:#fff
+    style Wenan fill:#7E57C2,color:#fff
+    style Jiaoxue fill:#7E57C2,color:#fff
+    style Result fill:#1E88E5,color:#fff
+    style End fill:#43A047,color:#fff
+```
+
+> **流程说明**：简单事务秘书长直接处理，复杂事务根据类型派发给不同子代理。
+
+---
+
 ### 2.2 技术栈
 
 | 组件 | 技术选型 | 说明 |
@@ -142,6 +176,33 @@ graph TB
 ---
 
 ## 🚀 三、实施过程（4 个阶段）
+
+### 实施时间轴
+
+```mermaid
+gantt
+    title Harness Engineering 实施时间轴
+    dateFormat  YYYY-MM-DD
+    axisFormat  %m-%d
+    
+    section 阶段 1
+    基础建设           :a1, 2026-04-01, 14d
+    事务日志 + QA 检查    :a2, after a1, 7d
+    
+    section 阶段 2
+    可观测性增强       :b1, after a2, 14d
+    心跳监控 + 异常告警  :b2, after b1, 7d
+    
+    section 阶段 3
+    故障恢复能力       :c1, after b2, 14d
+    自动重试 + 降级处理  :c2, after c1, 7d
+    
+    section 阶段 4
+    高级协作模式       :d1, after c2, 14d
+    工作流引擎 + 智能路由 :d2, after d1, 7d
+```
+
+> **时间轴说明**：4 个阶段，每阶段 2 周，总计 8 周完成完整实施。
 
 ### 阶段 1：基础建设（第 1-2 周）
 
@@ -284,6 +345,8 @@ fi
 ### 阶段 3：故障恢复能力（第 5-6 周）
 
 **目标**：实现自动重试、降级处理和人工介入
+
+**故障恢复流程**：\n\n```mermaid\nflowchart LR\n    A[任务失败] --> B{错误类型}\n    B -->|可重试错误 | C[自动重试\n最多 2 次]\n    B -->|不可重试错误 | D[降级处理]\n    C -->|成功 | E[完成]\n    C -->|失败 | D\n    D -->|L1 降级 | F[切换备选子代理]\n    D -->|L2 降级 | G[简化 QA 流程]\n    D -->|L3 降级 | H[人工介入]\n    F & G & H --> E\n```\n
 
 #### 任务 3.1：自动重试机制
 
@@ -442,6 +505,19 @@ workflow:
 ---
 
 ## 📊 四、最终成果
+
+### 核心能力评分
+
+```mermaid
+pie title 核心能力评分（满分 10 分）
+    "可追溯性" : 10
+    "可观测性" : 9
+    "可恢复性" : 9
+    "可编排性" : 10
+    "隔离性" : 9
+```
+
+> **评分说明**：5 个维度平均得分 9.4 分，整体表现优秀。
 
 ### 4.1 资源统计
 
